@@ -17,6 +17,8 @@ for ($i = 0; $i < $str_sqrt; $i++) {
     $count = $count + $str_sqrt;
 }
 
+
+
 $res = [];
 
 for ($i = 0; $i < strlen($search_str); $i++) {
