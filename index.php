@@ -1,10 +1,16 @@
 <?php 
 
-$str = "QLGNAEKIRLRNGEAE";
+$str = "QLGNAEKIRLRNGEAED";
 $str_lengh = strlen($str);
-$str_sqrt = round(sqrt((int) $str_lengh));
+$str_sqrt = ceil(sqrt((int) $str_lengh));
 
-$search_str = "KING";
+echo $str_lengh;
+echo "<br/>";
+echo $str_sqrt;
+echo "<br/>";
+echo "<br/>";
+
+$search_str = "KIZNGZJR";
 echo "<pre>";
 
 
@@ -26,12 +32,15 @@ for ($i = 0; $i < strlen($search_str); $i++) {
     for ($iter = 0; $iter < count($arr); $iter++) {
         // echo $arr[$iter] . ", ";
         if (str_contains($arr[$iter], $search_str[$i])) {
-            // echo array_search($arr[$iter], $arr) . 'WOOORK';
-            $horizontal = array_search($arr[$iter], $arr) . ", ";
-            $vertical = stripos($arr[$iter], $search_str[$i]) . ', ';
+            // echo array_search($arr[$iter], $arr) . ", ";
+            $horizontal = array_search($arr[$iter], $arr);
+            $vertical = stripos($arr[$iter], $search_str[$i]);
             $array_final = [$horizontal, $vertical];
             array_push($res, $array_final);
+            // echo $iter . ",";
             break;
+        } elseif ($iter === count($arr) - 1) {
+            array_push($res, "Этого значения нет в строке!");
         }
     }
 }
